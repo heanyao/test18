@@ -107,13 +107,16 @@ $('.search_input_text').on('input', function () {
                 }
             } else {
                 name = arr[i].name;
-                var s = name.indexOf(key);
+				console.log('name:' + name);
+				name1 = name.toUpperCase();
+				key1 = key.toUpperCase();
+                var s = name1.indexOf(key1);
                 if (s >= 0) {
                     var pre1 = arr[i].name.slice(0, parseInt(s));
                     var last1 = arr[i].name.slice(parseInt(s) + key.length);
                     t += '<a class="key_result_item" href="' + l + arr[i].code + '">' +
                         '<img src="http://www.fin110.com/' + arr[i].tiny_logo + '" alt="logo" class="key_result_img">' +
-                        pre1 + '<span class="keyword_red">' + key + '</span>' + last1 +
+                        pre1 + '<span class="keyword_red">' + name.substr(s, key.length) + '</span>' + last1 +
                         '</a>';
                 } else {
                     var key1 = key.toUpperCase();

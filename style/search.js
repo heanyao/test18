@@ -4,11 +4,13 @@ $(function(){
     $.getUrlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
+        //if (r != null) return unescape(r[2]); return null;
+        if (r != null) return r[2]; return null;
     }
     var search_type = $.getUrlParam('type') || 1;
     var current_page = 1;
-    var keyword = $.getUrlParam('keyword') || '';
+    //var keyword = $.getUrlParam('keyword') || '';
+    var keyword = $.getUrlParam('keyword') == null ? '' : decodeURIComponent($.getUrlParam('keyword'));
 
     $('.search-nav li').removeClass('active');
     $('.search-nav li:eq(' + (parseInt(search_type) - 1) + ')').addClass('active');

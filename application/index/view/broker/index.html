@@ -169,12 +169,131 @@
 								$(e).parents('.address_other').fadeOut();
 							}
 						</script>
-						<p class="btns">
+<style>
+.Trading-software {
+	background-color: rgba(255, 255, 255, 0.5);
+	min-width: 98px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	padding: 0px;
+	margin-left: 10px;
+	display: inline-block;
+	border-radius: 3px;
+	position: relative;
+	vertical-align: top;
+	cursor: pointer;
+	border-radius: 4px;
+}
+.Trading-software a {
+	color: #fff;
+}
+.Trading-software:hover {
+	text-decoration: none;
+	background: rgba(24, 113, 254, 1);
+}
+.Trading-software .software-kind-box {
+    padding-top: 20px;
+    position: absolute;
+    left: 50%;
+    top: 29px;
+    margin-left: -75px;
+    display: none;
+}
+.Trading-software .software-kind {
+    width: auto;
+    background-color: rgba(0,0,0,.75);
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.Trading-software .software-kind::before {
+    content: "";
+    border-width: 0px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0,0,0,.75);
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -8px;
+}
+.Trading-software .software-kind ul {
+	margin:0;
+}
+.Trading-software .software-kind ul li {
+	list-style: none;
+    min-width: 125px;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-align: left;
+}
+.Trading-software .software-kind ul li.active{background-color: #F4C931;}
+.Trading-software .software-kind ul li.active a{color:#333;}
+.Trading-software .software-kind ul li.active s{background-position:0px 0px;}
+.Trading-software .software-kind ul li:hover {background-color: #F4C931;}
+.Trading-software .software-kind ul li:hover a{color:#333;}
+.Trading-software .software-kind ul li:hover s{background-position:0px 0px;}
+.Trading-software .Trading-software a {
+    color: #fff;
+}
+.Trading-software .software-kind ul li a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px 16px;
+    box-sizing: border-box;
+}
+.Trading-software .software-kind ul li a s {
+    width: 20px;
+    height: 20px;
+    background: url(https://www.fxeye.com/Content/images/cloud-btn.png) no-repeat 0px -20px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+    margin-right: 9px;
+}
+.Trading-software .software-kind ul li a span {
+    display: inline-block;
+    vertical-align: top;
+}
+</style>
+						<div class="btns">
 							<a href="javascript:;">在线开户</a>
-							<a href="javascript:;">MT4下载</a>
+								<div class="Trading-software">
+								<a href="javascript:;">MT4下载</a>
+								<div class="software-kind-box" style="display: none; margin-left: -72.5px; opacity: 1;">
+									<div class="software-kind">
+										<ul>
+											<li>
+												<a href="https://download.efxnow.com/mt/Global/CN/forexcomglobalcn4setup.exe" rel="nofollow">
+													<s></s>
+													<span>MT4下载</span>
+												</a>
+											</li>
+											<li>
+												<a href="http://www.forexchinese.com/Downloads/MT5/forexcomglobalcn5setup.exe?_ga=2.192441769.2082659161.1575611125-2108856708.1575611125" rel="nofollow">
+													<s></s>
+													<span>MT5下载</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								</div>
+
+							
 							<a href="javascript:;">MT4/5鉴定</a>
 							<a href="javascript:;">IB直通车</a>
-						</p>
+						</div>
+						
+<script>
+	$(".Trading-software").hover(function () {
+        $(this).children(".software-kind-box").fadeIn();
+        $(this).children(".software-kind-box").css("margin-left", -(parseInt($(".software-kind-box").width())/ 2));
+    }, function () {
+        $(this).children(".software-kind-box").stop(true, false).fadeOut();
+    });
+</script>
 					</div>
 					<div class="q_h_zhkb">
 						<p class="title">
@@ -657,11 +776,11 @@
 										<td>{$basic_info.avg_cost/10}</td>
 
 										{if condition="$comparing[0] < 1"}
-										<td><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[0]*100-100|abs}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[0]*100-100|abs}%</td>
 										{elseif condition="$comparing[0] >1"/}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[0]*100-100}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[0]*100-100}%</td>
 										{else /}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
 										{/if}
 
 									</tr>
@@ -678,11 +797,11 @@
 										<td>{$basic_info.avg_exc/10}</td>
 
 										{if condition="$comparing[1] < 1"}
-										<td><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[1]*100-100|abs}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[1]*100-100|abs}%</td>
 										{elseif condition="$comparing[1] >1"/}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[1]*100-100}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[1]*100-100}%</td>
 										{else /}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
 										{/if}
 
 									</tr>
@@ -698,11 +817,11 @@
 										</td>
 										<td>{$basic_info.avg_fund/10}</td>
 										{if condition="$comparing[2] < 1"}
-										<td><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[2]*100-100|abs}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[2]*100-100|abs}%</td>
 										{elseif condition="$comparing[2] >1"/}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[2]*100-100}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[2]*100-100}%</td>
 										{else /}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
 										{/if}
 									</tr>
 									<tr>
@@ -717,11 +836,11 @@
 										</td>
 										<td>{$basic_info.avg_slip/10}</td>
 										{if condition="$comparing[3] < 1"}
-										<td><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[3]*100-100|abs}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[3]*100-100|abs}%</td>
 										{elseif condition="$comparing[3] >1"/}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[3]*100-100}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[3]*100-100}%</td>
 										{else /}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
 										{/if}
 									</tr>
 									<tr>
@@ -736,11 +855,11 @@
 										</td>
 										<td>{$basic_info.avg_stable/10}</td>
 										{if condition="$comparing[4] < 1"}
-										<td><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[4]*100-100|abs}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[4]*100-100|abs}%</td>
 										{elseif condition="$comparing[4] >1"/}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[4]*100-100}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[4]*100-100}%</td>
 										{else /}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
 										{/if}
 									</tr>
 									<tr>
@@ -755,11 +874,11 @@
 										</td>
 										<td>{$basic_info.avg_service/10}</td>
 										{if condition="$comparing[5] < 1"}
-										<td><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[5]*100-100|abs}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_low.png" class="q_jiantou"> 低 {$comparing[5]*100-100|abs}%</td>
 										{elseif condition="$comparing[5] >1"/}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[5]*100-100}%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 高 {$comparing[5]*100-100}%</td>
 										{else /}
-										<td><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
+										<td style="width: 60px;"><img src="__INDEX__/images/icons/ico_hign.png" class="q_jiantou"> 持平 --%</td>
 										{/if}
 									</tr>
 								</table>

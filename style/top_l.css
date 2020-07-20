@@ -88,7 +88,7 @@
     top: 42px;
     padding-top: 8px;
     display: none;
-    z-index: 2;
+    z-index: 1000;
 }
 
 .code_option_item {
@@ -258,7 +258,7 @@
     box-shadow: 0 0 8px 2px #1E6FE4;
     border-radius: 4px;
     background-color: #ffffff;
-    z-index: 999;
+    z-index: 1000;
     top: 42px;
     padding: 4px 0;
     display: none;

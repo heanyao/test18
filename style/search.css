@@ -840,6 +840,8 @@ section{
 }
 .tousu_username {
 	position: relative;
+	left: 20px;
+	margin-right: 20px;
 	display: inline-block;
 	width: 80px;
 	overflow: hidden;
@@ -872,7 +874,7 @@ section{
 
 .q_news_item>div>p:last-child {
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	align-items: center;
 	margin-top: 20px;
 }
