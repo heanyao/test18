@@ -71,6 +71,11 @@ $('.q_yx_items>span').click(function() {
 });
 $('.q_zdyyx_img').click(function() {
 	var text = $(this).siblings('.q_zdyyx').val();
+	if (text.length > 6) {
+		Dialog.warn("提示", '不超过6个字');
+		$('.mini-dialog-footer').css('height', '64px');
+		return;
+	}
 	if (text != '') {
 		var htmlText = document.createElement('span');
 		htmlText.innerHTML = text + '<img onclick="del_yx(this)" src="/static/index/images/icons/icon_clean.png">';

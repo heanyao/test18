@@ -76,15 +76,30 @@
 						</div>
 						<div class="q_jianguan_2 q_row">
 							<img src="__INDEX__/images/icons/pic_qbdt.png">
-							<div class="q_qinbao_list">
+							<div class="q_qinbao_list" id="s1">
+								<ul>
 								<p class="q_qinbao_item">11111111111111111111111111111111111111111111111111111111111111111</p>
 								<p class="q_qinbao_item">22222222222222222222222222222222222222222</p>
 								<p class="q_qinbao_item">32444444444444444444444444444444444444</p>
 								<p class="q_qinbao_item">4333333333333333333333</p>
 								<p class="q_qinbao_item">5555555555555555555</p>
+								</ul>
 							</div>
 							<a href="javascript:;">更多</a>
-
+<script type="text/javascript">
+		function AutoScroll(obj) {
+			$(obj).find("ul:first").animate({
+				marginTop: "-25px"
+			}, 500, function() {
+				$(this).css({
+					marginTop: "0px"
+				}).find("p:first").appendTo(this);
+			});
+		}
+		$(document).ready(function() {
+			setInterval('AutoScroll("#s1")', 3000);
+		});
+</script>		
 						</div>
 						<div class="q_jianguan_3 q_row">
 							<p><img onclick="shoucang(this)" data-sc-type="1" src="__INDEX__/images/icons/ico_xq_guanzhu.png"><span>关注</span></p>
@@ -922,7 +937,7 @@
 									<div class="q_row">
 										<div class="q_yx_box">
 										</div>
-										<input type="text" class="q_zdyyx">
+										<input type="text" class="q_zdyyx" placeholder="不超过6个字">
 										<img src="__INDEX__/images/icons/icon_add_s.png" class="q_zdyyx_img">
 									</div>
 									<div class="q_yx_items">
@@ -1228,7 +1243,8 @@
 						
 						</div>
 						<div class="q_news_more">
-							<a href="javascript:;" onclick="get_broker(this)">查看更多</a>
+							<!-- <a href="javascript:;" onclick="get_broker(this)">查看更多</a> -->
+							<div style="padding: 0px 8px;cursor: pointer;" onclick="get_broker(this)">查看更多</div>
 							<script>
 								var broker_id = $("#companie_id").val();
 

@@ -443,8 +443,8 @@ a:hover {
 	color: rgba(255, 255, 255, 1);
 	height: 36px;
 	width: 226px;
-	-webkit-animation: 6s rowup linear infinite normal;
-	animation: 6s rowup linear infinite normal;
+	/* -webkit-animation: 6s rowup linear infinite normal; */
+	/* animation: 6s rowup linear infinite normal; */
 	
 	position: relative;
 
